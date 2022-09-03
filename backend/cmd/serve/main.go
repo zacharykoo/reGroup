@@ -25,13 +25,13 @@ func main() {
 		return
 	}
 
-	customerRepository := lite.GetUserRepository(db)
-	customerService := service.GetUserService(&customerRepository)
+	userRepository := lite.GetUserRepository(db)
+	userService := service.GetUserService(&userRepository)
 	r := mux.NewRouter()
 
-	r.Handle("/api/customer", customerService.Get()).Methods("GET")
-	r.Handle("/api/customer", customerService.Create()).Methods("POST")
-	r.Handle("/api/customer", customerService.Edit()).Methods("PUT")
+	r.Handle("/api/user", userService.Get()).Methods("GET")
+	r.Handle("/api/user", userService.Create()).Methods("POST")
+	r.Handle("/api/user", userService.Edit()).Methods("PUT")
 
 	r.Use(corsMiddleware)
 
