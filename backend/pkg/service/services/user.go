@@ -1,4 +1,4 @@
-package service
+package services
 
 import (
 	"encoding/json"
@@ -9,6 +9,7 @@ import (
 
 	"github.com/zacharykoo/reGroup/backend/pkg/model"
 	"github.com/zacharykoo/reGroup/backend/pkg/repository"
+	"github.com/zacharykoo/reGroup/backend/pkg/service"
 )
 
 const (
@@ -19,7 +20,7 @@ type user struct {
 	repo repository.UserRepository
 }
 
-func GetUserService(repo repository.UserRepository) UserService {
+func GetUserService(repo repository.UserRepository) service.UserService {
 	return &user{
 		repo: repo,
 	}

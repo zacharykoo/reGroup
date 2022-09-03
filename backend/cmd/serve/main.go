@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/zacharykoo/reGroup/backend/pkg/database"
 	"github.com/zacharykoo/reGroup/backend/pkg/repository/lite"
-	"github.com/zacharykoo/reGroup/backend/pkg/service"
+	"github.com/zacharykoo/reGroup/backend/pkg/service/services"
 )
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 	}
 
 	userRepository := lite.GetUserRepository(db)
-	userService := service.GetUserService(&userRepository)
+	userService := services.GetUserService(&userRepository)
 	r := mux.NewRouter()
 
 	r.Handle("/api/user", userService.Get()).Methods("GET")
